@@ -3,7 +3,7 @@ format:
   revealjs:
     #theme: ["theme/q-theme.scss"]
     slide-number: c/t
-    logo: "https://salud.yucatan.gob.mx/files/get/2889?v=1669754780"
+    logo: "https://www.ssaver.gob.mx/wp-content/uploads/2022/06/cropped-cropped-cropped-cropped-logo-1.png"
     footer: "[github.com/fdzul](https://joyful-palmier-ec5e33.netlify.app/talks/reunion_interstatal/#/)"
     center-title-slide: true
 highlight-style: a11y
