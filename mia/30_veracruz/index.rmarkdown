@@ -9,6 +9,7 @@ format:
 highlight-style: a11y
 ---
 
+
 <h2>Plan Estatal de Prevención y Control del Dengue<br>en el estado de Veracruz</h2>
 
 <h2>
@@ -38,6 +39,7 @@ highlight-style: a11y
 
 ![](chains_merida.jpg){.absolute top="155" left="550" width="750"}
 
+
 ```{r setup}
 path_arbo <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/"
 # 3.1 arbovirosis dataset
@@ -48,6 +50,7 @@ source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Function
 library(sf)
 ```
 
+
 ## [Manejo Integrado de Aedes]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -57,6 +60,7 @@ library(sf)
 ## [Operacionalización del MIA]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 # Step 1. load the dataset #####
@@ -186,8 +190,10 @@ ggplot2::ggplot() +
 
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual_panuco, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
