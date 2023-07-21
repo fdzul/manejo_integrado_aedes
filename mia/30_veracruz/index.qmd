@@ -209,3 +209,126 @@ risk_transmision_activa(betas = panuco$betas,
   ggplot2::ggtitle("Pánuco")
 ```
 
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_tuxpan, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_30_veracruz.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = tuxpan$betas,
+                        geocoded_data =  z,
+                        cve_edo = "30",
+                        locality = "Tuxpan de Rodriguez Cano") +
+  ggplot2::ggtitle("Tuxpan")
+```
+
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_poza_rica, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_30_veracruz.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = poza_rica$betas,
+                        geocoded_data =  z,
+                        cve_edo = "30",
+                        locality = "Poza Rica de Hidalgo") +
+  ggplot2::ggtitle("Poza Rica")
+```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_papantla, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_30_veracruz.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = papantla$betas,
+                        geocoded_data =  z,
+                        cve_edo = "30",
+                        locality = "Papantla de Olarte") +
+  ggplot2::ggtitle("Papantla")
+```
+
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_martinez, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_30_veracruz.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = martinez$betas,
+                        geocoded_data =  z,
+                        cve_edo = "30",
+                        locality = "Martinez de la Torre") +
+  ggplot2::ggtitle("Martinez de la Torre")
+```
+
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_xalapa, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_30_veracruz.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = xalapa$betas,
+                        geocoded_data =  z,
+                        cve_edo = "30",
+                        locality = "Xalapa de Enriquez") +
+  ggplot2::ggtitle("Xalapa")
+```
+
