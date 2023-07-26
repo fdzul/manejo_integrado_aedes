@@ -1079,7 +1079,7 @@ a | b
 ## [Datos Básicos]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r datos_basicos}
 # step 1. load the data
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -1120,6 +1120,34 @@ dplyr::bind_rows(active_transmission_dat(betas = merida$betas,
                                          cve_edo = "31",
                                          locality = "Tizimín") |>
                      dplyr::mutate(localidad = "Tizimín") |>
+                     dplyr::select(localidad, municipio, sectores, 
+                                   blocks, chains, hotspots),
+                 active_transmission_dat(betas = tekax$betas,
+                                         geocoded_data = z,
+                                         cve_edo = "31",
+                                         locality = "Tekax de Alvaro Obregon") |>
+                     dplyr::mutate(localidad = "Tekax") |>
+                     dplyr::select(localidad, municipio, sectores, 
+                                   blocks, chains, hotspots),
+                 active_transmission_dat(betas = peto$betas,
+                                         geocoded_data = z,
+                                         cve_edo = "31",
+                                         locality = "Peto") |>
+                     dplyr::mutate(localidad = "Peto") |>
+                     dplyr::select(localidad, municipio, sectores, 
+                                   blocks, chains, hotspots),
+                 active_transmission_dat(betas = oxkutzcab$betas,
+                                         geocoded_data = z,
+                                         cve_edo = "31",
+                                         locality = "Oxkutzcab") |>
+                     dplyr::mutate(localidad = "Oxkutzcab") |>
+                     dplyr::select(localidad, municipio, sectores, 
+                                   blocks, chains, hotspots),
+                 active_transmission_dat(betas = kanasin$betas,
+                                         geocoded_data = z,
+                                         cve_edo = "31",
+                                         locality = "Kanasin") |>
+                     dplyr::mutate(localidad = "Kanasin") |>
                      dplyr::select(localidad, municipio, sectores, 
                                    blocks, chains, hotspots)) |>
     reactable::reactable(style = list(fontSize = '16px'),
