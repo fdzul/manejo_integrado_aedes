@@ -1213,10 +1213,11 @@ dplyr::bind_rows(active_transmission_dat(betas = merida$betas,
                  active_transmission_dat(betas = kanasin$betas,
                                          geocoded_data = z,
                                          cve_edo = "31",
-                                         locality = "Kanasin") |>
-                     dplyr::mutate(localidad = "Kanasin") |>
+                                         locality = "Kanasín") |>
+                     dplyr::mutate(localidad = "Kanasín") |>
                      dplyr::select(localidad, municipio, sectores, 
                                    blocks, chains, hotspots)) |>
+  dplyr::filter(hotspots != 0) |>
     reactable::reactable(style = list(fontSize = '16px'),
                          bordered = TRUE, 
                          striped = TRUE, 
