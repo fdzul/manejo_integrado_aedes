@@ -1075,6 +1075,73 @@ a | b
 ```
 
 
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual3, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+a <- risk_transmision_activa(betas = tekax$betas,
+                        geocoded_data =  z,
+                        cve_edo = "31",
+                        locality = "Tekax de Alvaro Obregon") +
+  ggplot2::ggtitle("Tekax")
+b <- risk_transmision_activa(betas = peto$betas,
+                        geocoded_data =  z,
+                        cve_edo = "31",
+                        locality = "Peto") +
+  ggplot2::ggtitle("Peto")
+
+
+library(patchwork)
+a | b
+```
+
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual4, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+a <- risk_transmision_activa(betas = oxkutzcab$betas,
+                        geocoded_data =  z,
+                        cve_edo = "31",
+                        locality = "Oxkutzcab") +
+  ggplot2::ggtitle("Oxkutzcab")
+b <- risk_transmision_activa(betas = kanasin$betas,
+                        geocoded_data =  z,
+                        cve_edo = "31",
+                        locality = "Kanasin") +
+  ggplot2::ggtitle("Kanasin")
+
+
+library(patchwork)
+a | b
+```
+
+
 
 ## [Datos Básicos]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
