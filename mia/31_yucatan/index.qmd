@@ -1030,16 +1030,69 @@ a <- risk_transmision_activa(betas = merida$betas,
                         cve_edo = "31",
                         locality = "Merida") +
   ggplot2::ggtitle("Merida")
-b <- risk_transmision_activa(betas = valladolid$betas,
+b <- risk_transmision_activa(betas = kanasin$betas,
                         geocoded_data =  z,
                         cve_edo = "31",
-                        locality = "Valladolid") +
-  ggplot2::ggtitle("Valladolid")
+                        locality = "Kanasin") +
+  ggplot2::ggtitle("Kanasin")
 
 
 library(patchwork)
 a | b
 ```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+
+```{r risk_escenario_actual_uman, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+# 1.1. aplicar la prueba de knox
+ 
+y <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT)) 
+
+
+
+# Step 1.2 Extract the locality
+loc <- rgeomex::extract_locality(cve_edo = "31",
+                                 locality = "Uman")
+
+
+
+# Step 1.3. knox test
+library(magrittr)
+knox_res <- denhotspots::knox(x = y[loc,], 
+                               crs = "+proj=eqc", 
+                               ds = 400, 
+                               dt = 20, 
+                               sym = 1000, 
+                               sp_link = FALSE,
+                               planar_coord = FALSE)
+
+denhotspots::space_time_link_map(x = knox_res,
+                                 locality = "Uman",
+                                 cve_edo = "31",
+                                 maptype = "staticmap",
+                                 facetmap = FALSE) +
+  ggplot2::ggtitle("Umán")
+
+```
+
+
 
 
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
@@ -1058,21 +1111,86 @@ if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     
 }
 
-a <- risk_transmision_activa(betas = ticul$betas,
+a <- risk_transmision_activa(betas = valladolid$betas,
                         geocoded_data =  z,
                         cve_edo = "31",
-                        locality = "Ticul") +
-  ggplot2::ggtitle("Ticul")
+                        locality = "Valladolid") +
+  ggplot2::ggtitle("Valladolid")
 b <- risk_transmision_activa(betas = tizimin$betas,
                         geocoded_data =  z,
                         cve_edo = "31",
-                        locality = "Tizimín") +
+                        locality = "Tizimin") +
   ggplot2::ggtitle("Tizimín")
 
 
 library(patchwork)
 a | b
 ```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_piste, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+a <- risk_transmision_activa(betas = piste$betas,
+                        geocoded_data =  z,
+                        cve_edo = "31",
+                        locality = "Pisté") +
+  ggplot2::ggtitle("Piste")
+
+######
+# 1.1. aplicar la prueba de knox
+
+y <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT)) 
+
+
+
+# Step 1.2 Extract the locality
+
+loc <- rgeomex::extract_locality(cve_edo = "31",
+                                 locality = "Izamal")
+
+
+
+# Step 1.3. knox test
+library(magrittr)
+knox_res <- denhotspots::knox(x = y[loc,], 
+                              crs = "+proj=eqc", 
+                              ds = 400, 
+                              dt = 20, 
+                              sym = 1000, 
+                              sp_link = FALSE,
+                              planar_coord = FALSE)
+
+
+b <- denhotspots::space_time_link_map(x = knox_res,
+                                 locality = "Izamal",
+                                 cve_edo = "31",
+                                 maptype = "staticmap",
+                                 facetmap = FALSE) +
+  ggplot2::ggtitle("Izamal")
+
+
+library(patchwork)
+a | b
+```
+
 
 
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
@@ -1130,11 +1248,11 @@ a <- risk_transmision_activa(betas = oxkutzcab$betas,
                         cve_edo = "31",
                         locality = "Oxkutzcab") +
   ggplot2::ggtitle("Oxkutzcab")
-b <- risk_transmision_activa(betas = kanasin$betas,
+b <- risk_transmision_activa(betas = ticul$betas,
                         geocoded_data =  z,
                         cve_edo = "31",
-                        locality = "Kanasin") +
-  ggplot2::ggtitle("Kanasin")
+                        locality = "Ticul") +
+  ggplot2::ggtitle("Ticul")
 
 
 library(patchwork)
