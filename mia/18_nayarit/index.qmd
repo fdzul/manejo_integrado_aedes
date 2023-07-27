@@ -389,7 +389,7 @@ z <- z |>
 loc <- rgeomex::extract_locality(cve_edo = "18",
                                  locality = "Tuxpan")
 library(magrittr)
-b <-denhotspots::knox(x = z[loc,], 
+denhotspots::knox(x = z[loc,], 
                   crs = "+proj=eqc", 
                   ds = 400, 
                   dt = 20, 
