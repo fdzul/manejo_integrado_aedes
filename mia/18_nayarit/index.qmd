@@ -246,7 +246,7 @@ a | b
 ```{r hotspots_cases_del_valle, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
-cases_hotspots_agebs19 |>
+a <- cases_hotspots_agebs19 |>
     sf::st_make_valid() |>
     dplyr::filter(loc == "San José del Valle") |>
 denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
@@ -257,6 +257,37 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  x_leg = 0.5,
                                  y_leg = 0.1,
                                  ageb = TRUE)
+####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "18",
+                                 locality = "San José del Valle")
+library(magrittr)
+b <-denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "San Jose del Valle",
+        cve_edo = "18",
+        maptype = "staticmap",
+        facetmap = FALSE) +
+  ggplot2::ggtitle("Transmision Activa")
+
+
+library(patchwork)
+a | b
+
+
 ```
 
 
@@ -268,7 +299,7 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
 ```{r hotspots_cases_sn_vicente, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
-cases_hotspots_agebs19 |>
+a <- cases_hotspots_agebs19 |>
     sf::st_make_valid() |>
     dplyr::filter(loc == "San Vicente") |>
 denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
@@ -279,6 +310,38 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  x_leg = 0.5,
                                  y_leg = 0.1,
                                  ageb = TRUE)
+
+####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "18",
+                                 locality = "San Vicente")
+library(magrittr)
+b <-denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "San Vicente",
+        cve_edo = "18",
+        maptype = "staticmap",
+        facetmap = FALSE) +
+  ggplot2::ggtitle("Transmision Activa")
+
+
+library(patchwork)
+a | b
+
+
 ```
 
 
@@ -302,6 +365,10 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  x_leg = 0.5,
                                  y_leg = 0.1,
                                  ageb = TRUE)
+
+
+
+
 ```
 
 
@@ -310,7 +377,42 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
 
 
 ```{r hotspots_cases_tuxpan, out.height="110%", out.width="110%"}
-load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
+###
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "18",
+                                 locality = "Tuxpan")
+library(magrittr)
+b <-denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Tuxpan",
+        cve_edo = "18",
+        maptype = "staticmap",
+        facetmap = FALSE) +
+  ggplot2::ggtitle("Transmision Activa")
 
 ```
 
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : https://fdzul.github.io/web_site_fadm/
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [8139945623, 9999580167]()
+
+-   ***slides***: https://famous-puppy-8cffd3.netlify.app/mia/18_nayarit/#/
