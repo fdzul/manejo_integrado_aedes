@@ -9,7 +9,7 @@ format:
 highlight-style: a11y
 ---
 
-<h2>Plan Estatal de Prevención y Control del Dengue<br>en el Estado de Nayarit</h2>
+<h2>Plan Estatal de Prevención y Control del Dengue<br>en el Estado de Michoacán</h2>
 
 <h2>
 
@@ -19,7 +19,7 @@ highlight-style: a11y
 
 <h3>Felipe Dzul Manzanilla</h3>
 
-<h3>Victor Bueyes</h3>
+<h3>uan Alejandro Rodriguez Hernández </h3>
 
 <h3>Fabián Correa-Morales</h3>
 
@@ -48,7 +48,6 @@ x <- boldenr::read_dataset_bol(path = path_arbo,
 source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/static_bump_map.R")
 library(sf)
 ```
-
 
 ## [Manejo Integrado de Aedes]{style="color:#003300"}
 
@@ -189,6 +188,53 @@ ggplot2::ggplot() +
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_cases_apatzingan, out.height="110%", out.width="110%"}
+load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
+library(magrittr)
+a <- cases_hotspots_agebs19 |> sf::st_make_valid() |>
+    dplyr::filter(loc == "Apatzingán de la Constitución") |>
+denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::ggtitle("Transmision Persistente")
+
+####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "16",
+                                 locality = "Apatzingan de la Constitucion")
+library(magrittr)
+b <-denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Apatzingan de la Constitucion",
+        cve_edo = "16",
+        maptype = "staticmap",
+        facetmap = FALSE) +
+  ggplot2::ggtitle("Transmision Activa")
+
+
+library(patchwork)
+a | b
+
+```
 
 
 ## [Dios Botic]{style="color:#003300;"}

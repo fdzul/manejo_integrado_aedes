@@ -27,8 +27,9 @@ highlight-style: a11y
 
 </h3>
 
-<h4>Date: 2023-07-27 </h4>
-<h4>Update: 2023-07-27 </h4>
+<h4>Date: 2023-07-27</h4>
+
+<h4>Update: 2023-07-27</h4>
 
 <br>
 
@@ -184,11 +185,9 @@ ggplot2::ggplot() +
 
 ```
 
-
-
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r hotspots_cases_tepic, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -238,10 +237,9 @@ a | b
 
 ```
 
-
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r hotspots_cases_del_valle, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -290,11 +288,9 @@ a | b
 
 ```
 
-
-
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r hotspots_cases_sn_vicente, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -344,12 +340,9 @@ a | b
 
 ```
 
-
-
-
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r hotspots_cases_santiago, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -371,10 +364,9 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
 
 ```
 
-
 ## [Transmisión Persistente & Activa]{style="color:#003300"}
-<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r hotspots_cases_tuxpan, out.height="110%", out.width="110%"}
 ###
@@ -405,13 +397,13 @@ denhotspots::knox(x = z[loc,],
 
 ```
 
-
 ## [Dios Botic]{style="color:#003300;"}
+
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 -   ***Bio*** : https://fdzul.github.io/web_site_fadm/
 
--   ***email*** : [felipe.dzul.m@gmail.com]()
+-   ***email*** : [felipe.dzul.m\@gmail.com]()
 
 -   ***celular*** : [8139945623, 9999580167]()
 
