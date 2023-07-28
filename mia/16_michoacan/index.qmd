@@ -201,7 +201,7 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  x_leg = 0.5,
                                  y_leg = 0.1,
                                  ageb = TRUE) +
-  ggplot2::ggtitle("Transmision Persistente")
+  ggplot2::ggtitle("Transmision Persistente en Apatzingan")
 
 ####
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -227,7 +227,7 @@ b <-denhotspots::knox(x = z[loc,],
         cve_edo = "16",
         maptype = "staticmap",
         facetmap = FALSE) +
-  ggplot2::ggtitle("Transmision Activa")
+  ggplot2::ggtitle("Transmision Activa en Apatzingan")
 
 
 library(patchwork)
@@ -252,7 +252,7 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  x_leg = 0.5,
                                  y_leg = 0.1,
                                  ageb = TRUE) +
-  ggplot2::ggtitle("Transmision Persistente")
+  ggplot2::ggtitle("Transmisión Persistente en Lázaro Cardenas")
 
 ####
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -278,7 +278,7 @@ b <-denhotspots::knox(x = z[loc,],
         cve_edo = "16",
         maptype = "staticmap",
         facetmap = FALSE) +
-  ggplot2::ggtitle("Transmision Activa")
+  ggplot2::ggtitle("Transmisión Activa en Lazaro Cardenas")
 
 
 library(patchwork)
@@ -336,6 +336,58 @@ library(patchwork)
 a | b
 
 ```
+
+
+## [Transmisión Persistente & Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hotspots_cases_zamora, out.height="110%", out.width="110%"}
+load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
+library(magrittr)
+a <- cases_hotspots_agebs19 |> sf::st_make_valid() |>
+    dplyr::filter(loc == "Zamora de Hidalgo") |>
+denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
+                                 pal_name = TRUE,
+                                 name = "OrYel",
+                                 breaks = 1,
+                                 dir_pal = -1,
+                                 x_leg = 0.5,
+                                 y_leg = 0.1,
+                                 ageb = TRUE) +
+  ggplot2::ggtitle("Transmision Persistente en Zamora")
+
+####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "16",
+                                 locality = "Zamora de Hidalgo")
+library(magrittr)
+b <-denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Zamora de Hidalgo",
+        cve_edo = "16",
+        maptype = "staticmap",
+        facetmap = FALSE) +
+  ggplot2::ggtitle("Transmision Activa en Zamora")
+
+
+library(patchwork)
+a | b
+
+```
+
 
 
 
