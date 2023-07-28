@@ -3,8 +3,8 @@ format:
   revealjs:
     #theme: ["theme/q-theme.scss"]
     slide-number: c/t
-    logo: "https://salud.yucatan.gob.mx/files/get/2889?v=1669754780"
-    footer: "[github.com/fdzul](https://joyful-palmier-ec5e33.netlify.app/talks/reunion_interstatal/#/)"
+    logo: "https://michoacan.gob.mx/cdn/img/logos/dependencias/salud.svg"
+    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/16_michoacan/#/)"
     center-title-slide: true
 highlight-style: a11y
 ---
@@ -19,7 +19,7 @@ highlight-style: a11y
 
 <h3>Felipe Dzul Manzanilla</h3>
 
-<h3>uan Alejandro Rodriguez Hernández </h3>
+<h3>Alejandro Rodriguez Hernández </h3>
 
 <h3>Fabián Correa-Morales</h3>
 
@@ -27,9 +27,9 @@ highlight-style: a11y
 
 </h3>
 
-<h4>Date: 2023-07-27</h4>
+<h4>Date: 2023-07-28</h4>
 
-<h4>Update: 2023-07-27</h4>
+<h4>Update: 2023-07-28</h4>
 
 <br>
 
@@ -247,4 +247,4 @@ a | b
 
 -   ***celular*** : [8139945623, 9999580167]()
 
--   ***slides***: https://famous-puppy-8cffd3.netlify.app/mia/18_nayarit/#/
+-   ***slides***: https://famous-puppy-8cffd3.netlify.app/mia/16_michoacan/#/
