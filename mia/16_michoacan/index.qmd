@@ -389,6 +389,18 @@ a | b
 ```
 
 
+## [Vigilancia Entomológica]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r vigilancia entomológica, out.height="50%", out.width="50%"}
+source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/ovitraps_occupancy_abundancy.R")
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/16_michoacan"
+library(magrittr)
+ovitraps_occupancy_abundancy(ovitraps_path = path_ovitraps,
+                             scale = "ovitraps")
+
+```
+
 
 
 ## [Dios Botic]{style="color:#003300;"}
