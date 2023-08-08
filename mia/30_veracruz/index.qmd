@@ -4,12 +4,12 @@ format:
     #theme: ["theme/q-theme.scss"]
     slide-number: c/t
     logo: "https://www.ssaver.gob.mx/wp-content/uploads/2022/06/cropped-cropped-cropped-cropped-logo-1.png"
-    footer: "[github.com/fdzul](https://joyful-palmier-ec5e33.netlify.app/talks/reunion_interstatal/#/)"
+    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/30_veracruz/#/)"
     center-title-slide: true
 highlight-style: a11y
 ---
 
-<h2>Plan Estatal de Prevención y Control del Dengue<br>en el estado de Veracruz</h2>
+<h2>Plan Estatal de Prevención y Control del Dengue en el estado<br>de Veracruz</h2>
 
 <h2>
 
@@ -36,7 +36,7 @@ highlight-style: a11y
 
 `r fontawesome::fa("github", "black")` [github.com/fdzul](https://fdzul.github.io/web_site_fadm/)
 
-![](chains_merida.jpg){.absolute top="155" left="550" width="750"}
+![](xalapa_2019.jpg){.absolute top="110" left="650" width="550"}
 
 ```{r setup}
 path_arbo <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/"
