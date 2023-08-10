@@ -1,0 +1,279 @@
+---
+format: 
+  revealjs:
+    #theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    logo: "https://www.ssaver.gob.mx/wp-content/uploads/2022/06/cropped-cropped-cropped-cropped-logo-1.png"
+    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/23_quintana_roo/#/)"
+    center-title-slide: true
+highlight-style: a11y
+---
+
+<h2>Plan Estatal de Prevención y Control del Dengue en el estado<br>de Quintana Roo</h2>
+
+<h2>
+
+</h2>
+
+<hr>
+
+<h3>Felipe Dzul Manzanilla</h3>
+
+<h3>Angel </h3>
+
+<h3>Fabián Correa-Morales</h3>
+
+<h3>
+
+</h3>
+
+<h4>Date: 2023-08-10 </h4>
+<h4>Update: 2023-08-10 </h4>
+
+<br>
+
+<h4>
+
+`r fontawesome::fa("github", "black")` [github.com/fdzul](https://fdzul.github.io/web_site_fadm/)
+
+![](xalapa_2019.jpg){.absolute top="110" left="650" width="550"}
+
+```{r setup}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+
+
+
+
+```
+
+## [Manejo Integrado de Aedes]{style="color:#003300"}
+
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+![](https://journals.plos.org/plosntds/article/figure/image?size=large&id=10.1371/journal.pntd.0006845.g001){.absolute top="100" width="800" height="550" right="120"}
+
+## [Operacionalización del MIA]{style="color:#003300"}
+
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+# Step 1. load the dataset #####
+load("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/automatic_read_sinave/8.RData/epid_channel_data.RData")
+
+# Step 2. extract the dengue cases of veracruz ####
+x <- x |>
+    dplyr::filter(DES_EDO_RES == "VERACRUZ") 
+
+y <- tibble::tibble(SEM = x$SEM,
+                    y = x$q25,
+                    arm = "Nuevo Paradigma")
+prob <- tibble::tibble(SEM = x$SEM,
+                       prob = rep(0, length(x$SEM)))
+
+# plot risk stratificaction  #####
+ggplot2::ggplot() +
+    ggplot2::geom_rect(ggplot2::aes(xmin = c(-Inf, 25), 
+                                    xmax = c(25, Inf), 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = c("#2EB67D", "#E01E5A"),
+                       alpha = .2) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 20, 
+                                    xmax = 25, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "#ECB22E",
+                       alpha = 0.8) +
+    ggplot2::geom_rect(ggplot2::aes(xmin = 38, 
+                                    xmax = 40, 
+                                    ymin = -Inf, 
+                                    ymax = Inf),
+                       fill = "#36C5F0",
+                       alpha = 0.8) +
+    ggplot2::geom_vline(xintercept = 25,
+                        color = "gray", #"#36C5F0",
+                        size = 1,
+                        linetype = 3) +
+    ggplot2::geom_vline(xintercept = 20,
+                        color = "gray", #"#36C5F0",
+                        size = 1,
+                        linetype = 3) +
+    ggplot2::geom_line(data = x, 
+                       ggplot2::aes(x = SEM,
+                                    y = q75-10),
+                       col = "#E01E5A",
+                       size = 3) +
+    ggplot2::geom_line(data = y, 
+                       ggplot2::aes(x = SEM,
+                                    y = y),
+                       color = "#2EB67D", #"#36C5F0",
+                       size = 3) +
+    ggplot2::ylab("Número de Casos") +
+    ggplot2::xlab("Semanas Epidemiológicas") +
+    ggplot2::annotate("text",
+                      label = "Control Proactivo",
+                      x = 10, 
+                      y = 450,
+                      #text = "risk",
+                      col = "#2EB67D",
+                      size = 6) +
+    ggplot2::annotate("text",
+                      label = "Escenarios Operativos \nbasados \nen \nTransmisión Persistente",
+                      x = 10, 
+                      y = 380,
+                      #text = "risk",
+                      col = "#2EB67D",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Control Reactivo",
+                      x = 42, 
+                      y = 450,
+                      #text = "risk",
+                      col = "#E01E5A",
+                      size = 6) +
+    ggplot2::annotate("text",
+                      label = "Escenarios Operativos \nbasados \nen \nTransmisión Activa",
+                      x = 45, 
+                      y = 380,
+                      #text = "risk",
+                      col = "#E01E5A",
+                      size = 4) +
+    ggplot2::geom_line(data = prob, 
+                       ggplot2::aes(x = SEM,
+                                    y = prob),
+                       color = "#36C5F0",
+                       size = 2)  +
+    ggplot2::annotate("text",
+                      label = "Acciones Específicas Básicas",
+                      x = 10, 
+                      y = 280,
+                      col = "gray",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Control de Probables",
+                      x = 10, 
+                      y = 250,
+                      col = "#36C5F0",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Rociado Residual",
+                      x = 10, 
+                      y = 220,
+                      col = "#ECB22E",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Control Larvario",
+                      x = 10, 
+                      y = 200,
+                      col = "#ECB22E",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Acciones Específicas de Soporte",
+                      x = 10, 
+                      y = 150,
+                      col = "gray",
+                      size = 4) +
+    ggplot2::annotate("text",
+                      label = "Termonebulización,\n Nebulización, & \nEliminación Masiva de Criaderos",
+                      x = 10, 
+                      y = 110,
+                      col = "gray",
+                      size = 3)
+
+```
+
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_cancun, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = cancun$betas,
+                        geocoded_data =  z,
+                        cve_edo = "23",
+                        locality = "Cancun") +
+  ggplot2::ggtitle("Cancun")
+```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_chetumal, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+
+risk_transmision_activa(betas = chetumal$betas,
+                        geocoded_data =  z,
+                        cve_edo = "23",
+                        locality = "Chetumal") +
+  ggplot2::ggtitle("Chetumal")
+```
+
+
+
+## [Vigilancia Entomológica]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r vigilancia entomológica_ovitraps, out.width="100%"}
+source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/ovitraps_occupancy_abundancy.R")
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/23_quintana_roo"
+library(magrittr)
+ovitraps_occupancy_abundancy(ovitraps_path = path_ovitraps,
+                             scale = "ovitraps")
+
+```
+
+## [Vigilancia Entomológica]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r vigilancia entomológica_blocks, out.width="110%"}
+source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Functions/ovitraps_occupancy_abundancy.R")
+path_ovitraps <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/23_quintana_roo"
+library(magrittr)
+ovitraps_occupancy_abundancy(ovitraps_path = path_ovitraps,
+                             scale = "blocks")
+
+```
+
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : https://fdzul.github.io/web_site_fadm/
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [8139945623, 9999580167]()
+
+-   ***slides***: https://famous-puppy-8cffd3.netlify.app/mia/23_quintana_roo/#/
