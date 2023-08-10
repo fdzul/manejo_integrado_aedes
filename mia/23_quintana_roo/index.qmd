@@ -45,15 +45,10 @@ if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
     
 } else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
-    
+ 
 } else if(as.vector(Sys.info()["sysname"]) == "Linux"){
     
 }
-
-
-
-
 
 ```
 
@@ -201,15 +196,14 @@ ggplot2::ggplot() +
 ```{r risk_escenario_actual_cancun, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
     source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
     
 } else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
-    
+ 
 } else if(as.vector(Sys.info()["sysname"]) == "Linux"){
     
 }
-
 risk_transmision_activa(betas = cancun$betas,
                         geocoded_data =  z,
                         cve_edo = "23",
@@ -222,22 +216,46 @@ risk_transmision_activa(betas = cancun$betas,
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r risk_escenario_actual_chetumal, out.height="100%", out.width="100%"}
-if(as.vector(Sys.info()["sysname"]) == "Darwin"){
-    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
-    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
-    
-} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
-    load("D:/OneDrive/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
-    
-} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
-    
-}
-
 risk_transmision_activa(betas = chetumal$betas,
                         geocoded_data =  z,
                         cve_edo = "23",
                         locality = "Chetumal") +
   ggplot2::ggtitle("Chetumal")
+```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_cozumel, out.height="100%", out.width="100%"}
+risk_transmision_activa(betas = cozumel$betas,
+                        geocoded_data =  z,
+                        cve_edo = "23",
+                        locality = "Cozumel") +
+  ggplot2::ggtitle("Cozumel")
+```
+
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_playa, out.height="100%", out.width="100%"}
+risk_transmision_activa(betas = playa$betas,
+                        geocoded_data =  z,
+                        cve_edo = "23",
+                        locality = "Playa del Carmen") +
+  ggplot2::ggtitle("Playa del Carmen")
+```
+
+## [Escenarios de la Transmisión Activa]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_felipe, out.height="100%", out.width="100%"}
+risk_transmision_activa(betas = felipe$betas,
+                        geocoded_data =  z,
+                        cve_edo = "23",
+                        locality = "Felipe Carrillo Puerto") +
+  ggplot2::ggtitle("Felipe Carrillo Puerto")
 ```
 
 
