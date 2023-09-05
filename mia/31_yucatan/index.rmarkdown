@@ -9,6 +9,7 @@ format:
 highlight-style: a11y
 ---
 
+
 <h2>Plan Estatal de Prevención y Control del Dengue<br>en Yucatán</h2>
 
 <h2>
@@ -38,6 +39,7 @@ highlight-style: a11y
 
 ![](chains_merida.jpg){.absolute top="155" left="550" width="750"}
 
+
 ```{r setup}
 path_arbo <- "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/"
 # 3.1 arbovirosis dataset
@@ -48,6 +50,7 @@ source("~/Library/CloudStorage/Dropbox/r_developments/r_new_functions/3.Function
 library(sf)
 ```
 
+
 ## [Manejo Integrado de Aedes]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -57,6 +60,7 @@ library(sf)
 ## [Operacionalización del MIA]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 # Step 1. load the dataset #####
@@ -185,11 +189,13 @@ ggplot2::ggplot() +
 ```
 
 
+
 ## [Transmisión Persistente (Hotspots)]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container {
@@ -207,6 +213,7 @@ ggplot2::ggplot() +
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -237,6 +244,7 @@ Mérida
 :::
 
 ::: grid-item
+
 ```{r hotspots_cases_merida, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
@@ -252,9 +260,11 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  y_leg = 0.1,
                                  ageb = TRUE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_merida, out.height="110%", out.width="110%"}
 source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/hotspots_eggs/8.RData/31_yucatan/betas/31_yucatan_zinb1_betas.RData")
@@ -265,9 +275,11 @@ betas_31_yucatan |>
                     palette = rcartocolor::carto_pal,
                     name = "SunsetDark")
 ```
+
 :::
 
 ::: grid-item
+
 ```{r risk_merida, out.height="110%", out.width="110%"}
 # load the dengue cases hotspots
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -286,6 +298,7 @@ risk <- risk_agebs(spde_model = betas_31_yucatan,
                    intensity_perc = 25)
 risk_map(risk = risk, staticmap = TRUE) 
 ```
+
 :::
 
 ::: grid-item
@@ -293,6 +306,7 @@ Valladolid
 :::
 
 ::: grid-item
+
 ```{r hotspots_cases_valladolid, out.height="110%", out.width="100%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
@@ -308,9 +322,11 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  y_leg = 0.1,
                                  ageb = TRUE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_valladolid, out.height="110%", out.width="110%"}
 source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/hotspots_eggs/8.RData/31_yucatan/betas/31_yucatan_zinb1_betas.RData")
@@ -321,9 +337,11 @@ betas_31_yucatan |>
                     palette = rcartocolor::carto_pal,
                     name = "SunsetDark")
 ```
+
 :::
 
 ::: grid-item
+
 ```{r risk_valladolid, out.height="110%", out.width="110%"}
 # load the dengue cases hotspots
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -342,6 +360,7 @@ risk <- risk_agebs(spde_model = betas_31_yucatan,
                    intensity_perc = 25)
 risk_map(risk = risk, staticmap = TRUE) 
 ```
+
 :::
 
 :::
@@ -356,6 +375,7 @@ risk_map(risk = risk, staticmap = TRUE)
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container {
@@ -373,6 +393,7 @@ risk_map(risk = risk, staticmap = TRUE)
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -403,6 +424,7 @@ Ticul
 :::
 
 ::: grid-item
+
 ```{r hotspots_cases_ticul, out.height="110%", out.width="110%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
@@ -418,9 +440,11 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  y_leg = 0.1,
                                  ageb = TRUE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_ticul, out.height="110%", out.width="110%"}
 source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/hotspots_eggs/8.RData/31_yucatan/betas/31_yucatan_zinb1_betas.RData")
@@ -431,9 +455,11 @@ betas_31_yucatan |>
                     palette = rcartocolor::carto_pal,
                     name = "SunsetDark")
 ```
+
 :::
 
 ::: grid-item
+
 ```{r risk_ticul, out.height="110%", out.width="110%"}
 # load the dengue cases hotspots
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -452,6 +478,7 @@ risk <- risk_agebs(spde_model = betas_31_yucatan,
                    intensity_perc = 25)
 risk_map(risk = risk, staticmap = TRUE) 
 ```
+
 :::
 
 ::: grid-item
@@ -459,6 +486,7 @@ Tizimin
 :::
 
 ::: grid-item
+
 ```{r hotspots_cases_tizimin, error=FALSE,out.height="110%", out.width="100%"}
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
 library(magrittr)
@@ -474,9 +502,11 @@ denhotspots::staticmap_intensity(pal = rcartocolor::carto_pal,
                                  y_leg = 0.1,
                                  ageb = TRUE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_tizimin, error=FALSE, out.height="110%", out.width="110%"}
 source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/intensity_eggs.R")
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/hotspots_eggs/8.RData/31_yucatan/betas/31_yucatan_zinb1_betas.RData")
@@ -487,9 +517,11 @@ betas_31_yucatan |>
                     palette = rcartocolor::carto_pal,
                     name = "SunsetDark")
 ```
+
 :::
 
 ::: grid-item
+
 ```{r risk_tizimin, out.height="110%", out.width="110%"}
 # load the dengue cases hotspots
 load("~/Library/CloudStorage/Dropbox/hotspots_2022/8.RData/cases_hotspots_agebs19.RData")
@@ -508,6 +540,7 @@ risk <- risk_agebs(spde_model = betas_31_yucatan,
                    intensity_perc = 25)
 risk_map(risk = risk, staticmap = TRUE) 
 ```
+
 :::
 
 :::
@@ -526,6 +559,7 @@ risk_map(risk = risk, staticmap = TRUE)
 
 ## [Escenarios Operativos]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_merida2}
 # load the dengue cases hotspots
@@ -562,8 +596,10 @@ a | b
 
 
 
+
 ## [Escenarios Operativos]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_ticul2}
 # load the dengue cases hotspots
@@ -599,11 +635,13 @@ a | b
 ```
 
 
+
 ## [Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container {
@@ -621,6 +659,7 @@ a | b
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -651,6 +690,7 @@ Mérida
 :::
 
 ::: grid-item
+
 ```{r cadenas_merida_2023}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -685,9 +725,11 @@ denhotspots::knox(x = z[loc,],
         maptype = "staticmap",
         facetmap = FALSE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_merida_2023}
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
 deneggs::eggs_hotspots_intensity_map(spde_betas = merida$betas,
@@ -698,9 +740,11 @@ deneggs::eggs_hotspots_intensity_map(spde_betas = merida$betas,
                                      name = "SunsetDark")
 ```
 
+
 :::
 
 ::: grid-item
+
 ```{r risk_escenario_actual_merida}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -719,6 +763,7 @@ risk_transmision_activa(betas = merida$betas,
                         cve_edo = "31",
                         locality = "Merida")
 ```
+
 :::
 
 ::: grid-item
@@ -726,6 +771,7 @@ Valladolid
 :::
 
 ::: grid-item
+
 ```{r cadenas_valladolid_2023}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -760,9 +806,11 @@ denhotspots::knox(x = z[loc,],
         maptype = "staticmap",
         facetmap = FALSE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_valladolid_2023}
 load("~/OneDrive/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
 deneggs::eggs_hotspots_intensity_map(spde_betas = valladolid$betas,
@@ -773,9 +821,11 @@ deneggs::eggs_hotspots_intensity_map(spde_betas = valladolid$betas,
                                      name = "SunsetDark")
 ```
 
+
 :::
 
 ::: grid-item
+
 ```{r risk_escenario_actual_valladolid}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -794,6 +844,7 @@ risk_transmision_activa(betas = valladolid$betas,
                         cve_edo = "31",
                         locality = "Valladolid")
 ```
+
 :::
 
 :::
@@ -808,6 +859,7 @@ risk_transmision_activa(betas = valladolid$betas,
 
 <html>
 <head>
+
 ```{=html}
 <style>
 .grid-container {
@@ -825,6 +877,7 @@ risk_transmision_activa(betas = valladolid$betas,
 }
 </style>
 ```
+
 </head>
 <body>
 <h1>
@@ -855,6 +908,7 @@ Ticul
 :::
 
 ::: grid-item
+
 ```{r cadenas_ticul_2023}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -889,9 +943,11 @@ denhotspots::knox(x = z[loc,],
         maptype = "staticmap",
         facetmap = FALSE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_ticul_2023}
 load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
 deneggs::eggs_hotspots_intensity_map(spde_betas = ticul$betas,
@@ -902,9 +958,11 @@ deneggs::eggs_hotspots_intensity_map(spde_betas = ticul$betas,
                                      name = "SunsetDark")
 ```
 
+
 :::
 
 ::: grid-item
+
 ```{r risk_escenario_actual_ticul}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -923,6 +981,7 @@ risk_transmision_activa(betas = ticul$betas,
                         cve_edo = "31",
                         locality = "Ticul")
 ```
+
 :::
 
 ::: grid-item
@@ -930,6 +989,7 @@ Tizimin
 :::
 
 ::: grid-item
+
 ```{r cadenas_tizimin_2023}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -964,9 +1024,11 @@ denhotspots::knox(x = z[loc,],
         maptype = "staticmap",
         facetmap = FALSE)
 ```
+
 :::
 
 ::: grid-item
+
 ```{r hotspots_vector_tizimin_2023}
 load("~/OneDrive/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023.RData")
 deneggs::eggs_hotspots_intensity_map(spde_betas = tizimin$betas,
@@ -977,9 +1039,11 @@ deneggs::eggs_hotspots_intensity_map(spde_betas = tizimin$betas,
                                      name = "SunsetDark")
 ```
 
+
 :::
 
 ::: grid-item
+
 ```{r risk_escenario_actual_tizimin}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
@@ -998,6 +1062,7 @@ risk_transmision_activa(betas = tizimin$betas,
                         cve_edo = "31",
                         locality = "Tizimín")
 ```
+
 :::
 
 :::
@@ -1011,6 +1076,7 @@ risk_transmision_activa(betas = tizimin$betas,
 
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual1, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -1042,8 +1108,10 @@ a | b
 ```
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 
 ```{r risk_escenario_actual_uman, out.height="100%", out.width="100%"}
@@ -1095,8 +1163,10 @@ denhotspots::space_time_link_map(x = knox_res,
 
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual2, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -1128,8 +1198,10 @@ a | b
 ```
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual_piste, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -1193,8 +1265,10 @@ a | b
 
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual3, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -1227,8 +1301,10 @@ a | b
 
 
 
+
 ## [Escenarios de la Transmisión Activa]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
 
 ```{r risk_escenario_actual4, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
@@ -1260,6 +1336,7 @@ a | b
 ```
 
 
+
 ## [Dios Botic]{style="color:#003300;"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -1270,3 +1347,4 @@ a | b
 -   ***celular*** : [8139945623, 9999580167]()
 
 -   ***slides***: [https://famous-puppy-8cffd3.netlify.app/mia/31_yucatan/#/]()
+
