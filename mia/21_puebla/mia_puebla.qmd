@@ -1,0 +1,54 @@
+---
+format: 
+  revealjs:
+    #theme: ["theme/q-theme.scss"]
+    slide-number: c/t
+    logo: "https://salud.yucatan.gob.mx/files/get/2889?v=1669754780"
+    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/31_yucatan/#/)"
+    center-title-slide: true
+highlight-style: a11y
+---
+
+<h2>Plan Emergente para el Control del Brote de Dengue<br>en Puebla</h2>
+
+<h2>
+
+</h2>
+
+<hr>
+
+<h3>Felipe Dzul Manzanilla</h3>
+
+<h3></h3>
+
+<h3>Fabián Correa-Morales</h3>
+
+<h3>
+
+</h3>
+
+<h4>Date: 2023-04-05 </h4>
+<h4>Update: 2023-09-14 </h4>
+
+<br>
+
+<h4>
+
+`r fontawesome::fa("github", "black")` [github.com/fdzul](https://fdzul.github.io/web_site_fadm/)
+
+![](chains_merida.jpg){.absolute top="155" left="550" width="750"}
+
+
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [8139945623, 9999580167]()
+
+-   ***slides***: [https://famous-puppy-8cffd3.netlify.app/mia/21_puebla/#/]()
+
+
