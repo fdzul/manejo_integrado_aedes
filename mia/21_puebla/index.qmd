@@ -72,6 +72,48 @@ static_bump_map(dataset = x,
 ```
 
 
+## [Transmisión Activa Puebla]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_puebla, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+ 
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "21",
+                                 locality = "Heroica Puebla de Zaragoza")
+library(magrittr)
+denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Heroica Puebla de Zaragoza",
+        cve_edo = "21",
+        maptype = "staticmap",
+        facetmap = FALSE)
+
+```
+
+
+
+
 ## [Transmisión Activa Izucar]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -235,7 +277,6 @@ denhotspots::knox(x = z[loc,],
 ```
 
 
-
 ## [Transmisión Activa Venustiano Carranza]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -275,11 +316,11 @@ denhotspots::knox(x = z[loc,],
 
 ```
 
-## [Transmisión Activa Puebla]{style="color:#003300"}
+## [Transmisión Tepexí de Rodríguez]{style="color:#003300"}
 
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r risk_escenario_actual_puebla, out.height="100%", out.width="100%"}
+```{r risk_escenario_actual_tepexi, out.height="100%", out.width="100%"}
 if(as.vector(Sys.info()["sysname"]) == "Darwin"){
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
     load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
@@ -298,7 +339,7 @@ z <- z |>
     dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
 
 loc <- rgeomex::extract_locality(cve_edo = "21",
-                                 locality = "Heroica Puebla de Zaragoza")
+                                 locality = "Tepexi de Rodríguez")
 library(magrittr)
 denhotspots::knox(x = z[loc,], 
                   crs = "+proj=eqc", 
@@ -308,7 +349,132 @@ denhotspots::knox(x = z[loc,],
                   sp_link = FALSE,
                   planar_coord = FALSE) |>
     denhotspots::space_time_link_map(
-        locality = "Heroica Puebla de Zaragoza",
+        locality = "Tepexí de Rodríguez",
+        cve_edo = "21",
+        maptype = "staticmap",
+        facetmap = FALSE)
+
+```
+
+
+
+## [Transmisión Tepexco]{style="color:#003300"}
+
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_tepexco, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+ 
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "21",
+                                 locality = "Tepexco")
+library(magrittr)
+denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Tepexco",
+        cve_edo = "21",
+        maptype = "staticmap",
+        facetmap = FALSE)
+
+```
+
+
+
+## [Transmisión Jalpan]{style="color:#003300"}
+
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_jalpan, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+ 
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "21",
+                                 locality = "Jalpan")
+library(magrittr)
+denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Jalpan",
+        cve_edo = "21",
+        maptype = "staticmap",
+        facetmap = FALSE)
+
+```
+
+
+## [Transmisión Jalpan]{style="color:#003300"}
+
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r risk_escenario_actual_xicotepec, out.height="100%", out.width="100%"}
+if(as.vector(Sys.info()["sysname"]) == "Darwin"){
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+    load("~/Library/CloudStorage/OneDrive-Personal/proyects/talks/reunion_inter_estatal/8.RData/eggs_hotspots_2023_23_quintana_roo.RData")
+    source("~/Library/CloudStorage/Dropbox/r_developments/r_talks/2023/reunion_interstatal_2023/reunion_quintana_roo/functions/risk_transmission_activa.R")
+    
+} else if(as.vector(Sys.info()["sysname"]) == "Windows"){
+ 
+} else if(as.vector(Sys.info()["sysname"]) == "Linux"){
+    
+}
+# 2. aplicar la prueba de knox
+z <- z |>
+    as.data.frame() |>
+    sf::st_as_sf(coords = c("long", "lat"),
+                 crs = 4326) |>
+    dplyr::mutate(onset = lubridate::ymd(FEC_INI_SIGNOS_SINT))
+
+loc <- rgeomex::extract_locality(cve_edo = "21",
+                                 locality = "Xicotepec de Juarez")
+library(magrittr)
+denhotspots::knox(x = z[loc,], 
+                  crs = "+proj=eqc", 
+                  ds = 400, 
+                  dt = 20, 
+                  sym = 1000, 
+                  sp_link = FALSE,
+                  planar_coord = FALSE) |>
+    denhotspots::space_time_link_map(
+        locality = "Xicotepec de Juarez",
         cve_edo = "21",
         maptype = "staticmap",
         facetmap = FALSE)
