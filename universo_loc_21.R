@@ -1,63 +1,101 @@
 
 
-
 loc <- rgeomex::extract_locality(cve_edo = "21",
                                  locality = "Xicotepec de Juarez")
 
 
 
 # extract the localities ####
-manz <- rgeomex::blocks_ine20_mx_e
+manz <- rgeomex::blocks_ine20_mx_d |>
+    dplyr::filter(entidad == 21)
+table(manz$entidad)
 
 # extract the boundary localities #"####
 
-loc <- rgeomex::extract_locality(cve_edo = "31",
-                                 locality = c("Merida", "Kanasin",
-                                              "Tizimin","Valladolid",
-                                              "Ticul")) |>
+
+puebla <- rgeomex::extract_locality(cve_edo = "21",
+                                    locality = c("Heroida Puebla de Zaragoza")) |>
     dplyr::mutate(area_km = sf::st_area(geometry)) |>
     dplyr::mutate(ha = units::set_units(area_km, value = ha))
-merida <- rgeomex::extract_locality(cve_edo = "31",
-                                    locality = c("Merida")) |>
-    dplyr::mutate(area_km = sf::st_area(geometry)) |>
-    dplyr::mutate(ha = units::set_units(area_km, value = ha))
-kanasin <- rgeomex::extract_locality(cve_edo = "31",
-                                     locality = c("Kanasin")) |>
+izucar <- rgeomex::extract_locality(cve_edo = "21",
+                                     locality = c("Izucar de Matamoros")) |>
     dplyr::mutate(area_km = sf::st_area(geometry)) |>
     dplyr::mutate(ha = units::set_units(area_km, value = ha))
 
-tizimin <- rgeomex::extract_locality(cve_edo = "31",
-                                     locality = c("Tizimin")) |>
+tehuacan <- rgeomex::extract_locality(cve_edo = "21",
+                                     locality = c("Tehuacan")) |>
     dplyr::mutate(area_km = sf::st_area(geometry)) |>
     dplyr::mutate(ha = units::set_units(area_km, value = ha))
 
-valladolid <- rgeomex::extract_locality(cve_edo = "31",
-                                        locality = c("Valladolid")) |>
+acatlan <- rgeomex::extract_locality(cve_edo = "21",
+                                        locality = c("Acatlan de Osorio")) |>
     dplyr::mutate(area_km = sf::st_area(geometry)) |>
     dplyr::mutate(ha = units::set_units(area_km, value = ha))
-ticul <- rgeomex::extract_locality(cve_edo = "31",
-                                   locality = c("Ticul")) |>
+chietla <- rgeomex::extract_locality(cve_edo = "21",
+                                   locality = c("Chietla")) |>
     dplyr::mutate(area_km = sf::st_area(geometry)) |>
     dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
+v_carranza <- rgeomex::extract_locality(cve_edo = "21",
+                                     locality = c("Venustiano Carranza")) |>
+    dplyr::mutate(area_km = sf::st_area(geometry)) |>
+    dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
+tepexi <- rgeomex::extract_locality(cve_edo = "21",
+                                     locality = c("Tepexi de Rodriguez")) |>
+    dplyr::mutate(area_km = sf::st_area(geometry)) |>
+    dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
+tepexco <- rgeomex::extract_locality(cve_edo = "21",
+                                    locality = c("Tepexco")) |>
+    dplyr::mutate(area_km = sf::st_area(geometry)) |>
+    dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
+jalpan <- rgeomex::extract_locality(cve_edo = "21",
+                                    locality = c("Jalpan")) |>
+    dplyr::mutate(area_km = sf::st_area(geometry)) |>
+    dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
+xicotepec <- rgeomex::extract_locality(cve_edo = "21",
+                                    locality = c("Xicotepec")) |>
+    dplyr::mutate(area_km = sf::st_area(geometry)) |>
+    dplyr::mutate(ha = units::set_units(area_km, value = ha))
+
 #
-manz_merida <- manz[merida, ]
-manz_kanasin <- manz[kanasin, ]
-manz_tizimin <- manz[tizimin, ]
-manz_valladolid <- manz[valladolid, ]
-manz_ticul <- manz[ticul, ]
+manz_acatlan <- manz[acatlan, ]
+manz_chietla <- manz[chietla, ]
+manz_izucar <- manz[izucar, ]
+manz_jalpan <- manz[jalpan, ]
+manz_puebla <- manz[puebla, ]
+manz_tehuacan <- manz[tehuacan, ]
+manz_tepexco <- manz[tepexco, ]
+manz_tepexi <- manz[tepexi, ]
+manz_carranza <- manz[v_carranza, ]
+manz_xicotepec <- manz[xicotepec, ]
 
 #
-merida$manzanas <- nrow(manz_merida)
-kanasin$manzanas <- nrow(manz_kanasin)
-tizimin$manzanas <- nrow(manz_tizimin)
-valladolid$manzanas <- nrow(manz_valladolid)
-ticul$manzanas <- nrow(manz_ticul)
+acatlan$manzanas <- nrow(manz_acatlan)
+chietla$manzanas <- nrow(manz_chietla)
+izucar$manzanas <- nrow(manz_izucar)
+jalpan$manzanas <- nrow(manz_jalpan)
+puebla$manzanas <- nrow(manz_puebla)
+tehuacan$manzanas <- nrow(manz_tehuacan)
+tepexco$manzanas <- nrow(manz_tepexco)
+tepexi$manzanas <- nrow(manz_tepexi)
+v_carranza$manzanas <- nrow(manz_carranza)
+xicotepec$manzanas <- nrow(manz_xicotepec)
 
-dplyr::bind_rows(merida |> dplyr::select(NOMGEO, ha, manzanas),
-                 kanasin |> dplyr::select(NOMGEO, ha, manzanas),
-                 tizimin |> dplyr::select(NOMGEO, ha, manzanas),
-                 valladolid |> dplyr::select(NOMGEO, ha, manzanas),
-                 ticul |> dplyr::select(NOMGEO, ha, manzanas)) |>
+
+dplyr::bind_rows(acatlan |> dplyr::select(NOMGEO, ha, manzanas),
+                 chietla |> dplyr::select(NOMGEO, ha, manzanas),
+                 izucar |> dplyr::select(NOMGEO, ha, manzanas),
+                 jalpan |> dplyr::select(NOMGEO, ha, manzanas),
+                 puebla |> dplyr::select(NOMGEO, ha, manzanas),
+                 tehuacan |> dplyr::select(NOMGEO, ha, manzanas),
+                 tepexco |> dplyr::select(NOMGEO, ha, manzanas),
+                 tepexi |> dplyr::select(NOMGEO, ha, manzanas),
+                 v_carranza |> dplyr::select(NOMGEO, ha, manzanas),
+                 xicotepec |> dplyr::select(NOMGEO, ha, manzanas)) |>
     sf::st_drop_geometry() |>
     dplyr::mutate(Actividad = "Barrido") |>
     dplyr::mutate(Ciclos = 4) |>
@@ -67,4 +105,5 @@ dplyr::bind_rows(merida |> dplyr::select(NOMGEO, ha, manzanas),
                   Hectareas = ha,
                   Localidad = NOMGEO) |>
     dplyr::mutate(Hectareas = round(Hectareas, 0)) |>
-    reactable::reactable()
+    reactable::reactable(theme = reactablefmtr::flatly(),
+                         filterable = TRUE)
