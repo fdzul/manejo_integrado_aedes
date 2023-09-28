@@ -317,7 +317,6 @@ denhotspots::knox(x = z[loc,],
 ```
 
 ## [Transmisión Tepexí de Rodríguez]{style="color:#003300"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r risk_escenario_actual_tepexi, out.height="100%", out.width="100%"}
@@ -359,7 +358,6 @@ denhotspots::knox(x = z[loc,],
 
 
 ## [Transmisión Tepexco]{style="color:#003300"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r risk_escenario_actual_tepexco, out.height="100%", out.width="100%"}
@@ -401,7 +399,6 @@ denhotspots::knox(x = z[loc,],
 
 
 ## [Transmisión Jalpan]{style="color:#003300"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r risk_escenario_actual_jalpan, out.height="100%", out.width="100%"}
@@ -442,7 +439,6 @@ denhotspots::knox(x = z[loc,],
 
 
 ## [Transmisión Xicotepec]{style="color:#003300"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r risk_escenario_actual_xicotepec, out.height="100%", out.width="100%"}
@@ -482,7 +478,6 @@ denhotspots::knox(x = z[loc,],
 ```
 
 ## [Universo de Trabajo]{style="color:#003300"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r universo}
@@ -615,7 +610,6 @@ ovitraps_occupancy_abundancy(ovitraps_path = path_ovitraps,
 ```
 
 ## [Dios Botic]{style="color:#003300;"}
-
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 -   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
