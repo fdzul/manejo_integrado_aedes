@@ -4,7 +4,7 @@ format:
     #theme: ["theme/q-theme.scss"]
     slide-number: c/t
     logo: "https://salud.yucatan.gob.mx/files/get/2889?v=1669754780"
-    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/31_yucatan_impacto/#/)"
+    footer: "[github.com/fdzul](https://famous-puppy-8cffd3.netlify.app/mia/12_guerrero_impacto/#/)"
     center-title-slide: true
 highlight-style: a11y
 ---
@@ -188,6 +188,195 @@ kernel_density_map(locality = "Acapulco de Juarez",
                    map_type = "hybrid")
 
 ```
+
+
+
+## [Chilpancingo]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r chilpo}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "CHILPANCINGO DE LOS BRAVO",
+           year = 2023) +
+    ggplot2::geom_vline(xintercept = 36, 
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = 0.7) +
+    ggplot2::geom_vline(xintercept = 37, 
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = 0.7) +
+    ggplot2::geom_vline(xintercept = 37.5,
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = .7) +
+    ggplot2::geom_vline(xintercept = 38, 
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = .7) +
+    ggplot2::geom_vline(xintercept = 38.5,
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = .7) +
+    ggplot2::geom_vline(xintercept = 39,
+                        col = "#63C1A0",
+                        linewidth = 2,
+                        alpha = .7)
+
+```
+
+## [Chilpancingo]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r chilpo_estimados}
+# Step 1. load the dengue cases data ######
+x <- denhotspots::read_dengue_dataset(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+                                      spatial_resolution = "country",
+                                      status_caso = c(1, 2, 3)) |>
+    dplyr::filter(ANO == 2023) |>
+    dplyr::filter(DES_MPO_RES %in% c("CHILPANCINGO DE LOS BRAVO")) |> 
+    dplyr::mutate(week = lubridate::epiweek(FEC_INI_SIGNOS_SINT)) |>
+    dplyr::group_by(DES_MPO_RES, week, ESTATUS_CASO) |>
+    dplyr::summarise(n = dplyr::n(),
+                     .groups = "drop") |>
+    tidyr::pivot_wider(id_cols = c(DES_MPO_RES, week),
+                       names_from = ESTATUS_CASO,
+                       values_from = n) |>
+    dplyr::mutate(Porcentaje_Positividad = round((`2`/(`2` + `3`))*100, 
+                                                 digits = 0),
+                  estimados = ((Porcentaje_Positividad/100) * `1`) + `2`) |>
+    dplyr::rename(probable = `1`,
+                  confirmado =`2`,
+                  descartado = `3`) |>
+    dplyr::mutate(estimados = as.numeric(estimados))
+
+
+# Step 2. load the ovitraps data ######
+library(magrittr)
+y <- boldenr::read_dataset_bol(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/12_guerrero",
+                               dataset = "vectores",
+                               inf = "Lecturas") |>
+    dplyr::mutate(sec_manz = paste(Sector, Manzana, sep = "")) |>
+    dplyr::group_by(Semana.Epidemiologica, Localidad) |>
+    dplyr::summarise(n_blocks = data.table::uniqueN(sec_manz),
+                     n_block_positive = data.table::uniqueN(sec_manz[Huevecillos > 0]),
+                     n_ovitraps_install = length(unique(Ovitrampa)),
+                     n_ovitraps_positive = sum(Huevecillos > 0, na.rm = TRUE),
+                     n_ovitraps_negative = sum(Huevecillos <= 0, na.rm = TRUE),
+                     n_ovitraps_lectura = n_ovitraps_positive + n_ovitraps_negative,
+                     sum_ovitrap_positive = sum(Huevecillos, na.rm = TRUE),
+                     perc_lectura =  round(n_ovitraps_lectura/n_ovitraps_install, 2)*100,
+                     perc_OP = round(n_ovitraps_positive/n_ovitraps_lectura, 2)*100,
+                     perc_MP = round(n_block_positive/n_blocks, 2),
+                     avg_HOP = round(sum_ovitrap_positive/n_ovitraps_positive,1),
+                     avg_HMP = round(sum_ovitrap_positive/n_block_positive,1),
+                     .groups = "drop") |>
+    dplyr::mutate(week = Semana.Epidemiologica,
+                  locality = Localidad) |>
+    dplyr::select(week, locality, avg_HOP, avg_HMP, perc_OP, perc_MP, perc_lectura) |>
+    dplyr::filter(locality == "Chilpancingo")
+
+
+ggplot2::ggplot(data = x) +
+    ggplot2::geom_line(ggplot2::aes(x = week,
+                                    y = estimados),
+                       linewidth = 2,
+                       color = "#E01A59") +
+    ggplot2::geom_point(ggplot2::aes(x = week,
+                                     y = estimados),
+                        size = 5,
+                        fill = "#E01A59",
+                        stroke = 0.7,
+                        color = "white",
+                        shape = 21)  +
+    #ggplot2::facet_wrap("DES_MPO_RES",
+    #                    scales = "free_y") +
+    ggplot2::theme(legend.position = c(.1, .9),
+                   legend.background = ggplot2::element_blank()) +
+    ggplot2::scale_x_continuous(breaks = seq(from = 0, 
+                                             to = lubridate::epiweek(Sys.Date()), 
+                                             by = 2)) +
+    ggplot2::ylab("Número de Casos Estimados") +
+    ggplot2::xlab("Semanas Epidemiológicas") +
+    ggplot2::theme(strip.text = ggplot2::element_text(size = 12)) +
+    ggplot2::scale_y_continuous(name = "Número de Casos Estimados",
+                                # Add a second axis and specify its features
+                                sec.axis = ggplot2::sec_axis(~.*0.1, 
+                                                             name="Promedio de Huevos por Manzana")) +
+    ggplot2::theme(axis.title.y = ggplot2::element_text(color = "#E01A59", 
+                                                    size=13),
+               axis.title.y.right = ggplot2::element_text(color = "#0E5F76", 
+                                                          size=13),
+               axis.text.y.right = ggplot2::element_text(color = "#0E5F76", 
+                                                         size=10),
+               axis.text.y = ggplot2::element_text(color = "#E01A59", 
+                                                   size=10))
+```
+
+## [Mapa de Calor de Chilpancingo]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r chilpo_heatmap}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Chilpancingo de los Bravo",
+                   cve_edo = 12,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Zihuatanejo]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r zihua}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "ZIHUATANEJO DE AZUETA",
+           year = 2023)
+
+```
+
+
+## [Mapa de Calor de Zihuatanejo]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r zihua_heatmap}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Zihuatanejo",
+                   cve_edo = 12,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+
 
 
 ## [Dios Botic]{style="color:#003300;"}
