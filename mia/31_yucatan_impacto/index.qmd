@@ -206,7 +206,7 @@ ggplot2::ggplot(data = x) +
                                                    size=10))
 ```
 
-## [Mapa de Calor: Mérida]{style="color:#003300"}
+## [Mapa de Calor de Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
 ```{r}
@@ -220,11 +220,115 @@ load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geo
 kernel_density_map(locality = "Mérida",
                    cve_edo = 31,
                    geocoded_datasets = z,
+                   zoom = 12,
                    status_caso = c(1, 2),
                    map_type = "hybrid")
 
 ```
 
+
+## [Mapa de Calor de Valladolid]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Valladolid",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+## [Mapa de Calor de Tizimin]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Tizimin",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Mapa de Calor de Ticul]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Ticul",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Mapa de Calor de Tekax]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Tekax de Alvaro Obregon",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Mapa de Calor de Oxkutzcab]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Oxkutzcab",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
 
 
 
