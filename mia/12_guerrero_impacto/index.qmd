@@ -172,7 +172,7 @@ ggplot2::ggplot(data = x) +
 ## [Mapa de Calor de Acapulco]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r merida_heatmap}
+```{r acapulco_heatmap}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -189,3 +189,14 @@ kernel_density_map(locality = "Acapulco de Juarez",
 
 ```
 
+
+## [Dios Botic]{style="color:#003300;"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+-   ***Bio*** : [https://fdzul.github.io/web_site_fadm/]()
+
+-   ***email*** : [felipe.dzul.m@gmail.com]()
+
+-   ***celular*** : [8139945623, 9999580167]()
+
+-   ***slides***: [https://famous-puppy-8cffd3.netlify.app/mia/12_guerrero_impacto/#/]()

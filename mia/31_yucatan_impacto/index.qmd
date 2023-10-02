@@ -336,8 +336,6 @@ kernel_density_map(locality = "Hunucma",
 
 
 
-
-
 ## [Valladolid]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -376,7 +374,7 @@ kernel_density_map(locality = "Valladolid",
 ## [Tizimín]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r tizimin}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -391,7 +389,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Tizimin]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmap_tizimin}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -414,7 +412,7 @@ kernel_density_map(locality = "Tizimin",
 ## [Ticul]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r ticul}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -429,7 +427,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Ticul]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmap_ticul}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -451,7 +449,7 @@ kernel_density_map(locality = "Ticul",
 ## [Tekax]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r tekax}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -466,7 +464,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Tekax]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmap_tekax}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -487,7 +485,7 @@ kernel_density_map(locality = "Tekax de Alvaro Obregon",
 ## [Oxkutzcab]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r oxkutzcab}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -502,7 +500,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Oxkutzcab]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmpa_oxkutzcab}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
