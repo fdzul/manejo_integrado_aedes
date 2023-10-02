@@ -376,6 +376,41 @@ kernel_density_map(locality = "Zihuatanejo",
 ```
 
 
+## [Ometepec]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r ome}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "OMETEPEC",
+           year = 2023)
+
+```
+
+
+## [Mapa de Calor de Ometepec]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r ome_heatmap}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Ometepec",
+                   cve_edo = 12,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
 
 
 
