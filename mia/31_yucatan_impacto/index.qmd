@@ -9,7 +9,7 @@ format:
 highlight-style: a11y
 ---
 
-<h2>Evaluacion del Plan Estatal de Prevención y Control del Dengue<br>en Yucatán</h2>
+<h2>Plan Estatal de Prevención y Control del Dengue<br>en Yucatán</h2>
 
 <h2>
 
@@ -205,6 +205,26 @@ ggplot2::ggplot(data = x) +
                axis.text.y = ggplot2::element_text(color = "#E01A59", 
                                                    size=10))
 ```
+
+## [Mapa de Calor: Mérida]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Mérida",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
 
 
 
