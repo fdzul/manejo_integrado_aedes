@@ -45,7 +45,7 @@ highlight-style: a11y
 ## [Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r merida}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -84,7 +84,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r_merida_estimados}
 # Step 1. load the dengue cases data ######
 x <- denhotspots::read_dengue_dataset(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
                                       spatial_resolution = "country",
@@ -209,7 +209,7 @@ ggplot2::ggplot(data = x) +
 ## [Mapa de Calor de Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r merida_heatmap}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -227,10 +227,121 @@ kernel_density_map(locality = "Mérida",
 ```
 
 
+## [Motul]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r motul}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "MOTUL",
+           year = 2023) 
+
+```
+
+## [Mapa de Calor de Motul]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r motul_heatmap}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Motul de Carrillo Puerto",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Progreso]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r progreso}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "PROGRESO YUC",
+           year = 2023) 
+
+```
+
+## [Mapa de Calor de Progreso]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r heatmap_progreso}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Progreso",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+## [Hunucma]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r hunucma}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "HUNUCMA",
+           year = 2023) 
+
+```
+
+## [Mapa de Calor de Hunucma]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r heatmap_hunucma}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Hunucma",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+
+
+
 ## [Valladolid]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r valladolid}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -245,7 +356,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Valladolid]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmap_valladolid}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -400,6 +511,45 @@ load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geo
 
 # Step 2. test the funciton with merida ####
 kernel_density_map(locality = "Oxkutzcab",
+                   cve_edo = 31,
+                   geocoded_datasets = z,
+                   zoom = 14,
+                   status_caso = c(1, 2),
+                   map_type = "hybrid")
+
+```
+
+
+
+
+
+## [Peto]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
+
+# Step 2. map ####
+library(patchwork)
+cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+           mpo = "PETO",
+           year = 2023) 
+
+```
+
+## [Mapa de Calor de Peto]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r}
+# Step 1. load the function ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
+
+# Step 3. load the dengue dataset geocoded ####
+load("~/Library/CloudStorage/OneDrive-Personal/proyects/geocoding_mex/2023/9.geocoded_dataset/dengue_mx_2023.RData")
+
+# Step 2. test the funciton with merida ####
+kernel_density_map(locality = "Peto",
                    cve_edo = 31,
                    geocoded_datasets = z,
                    zoom = 14,
