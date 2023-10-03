@@ -84,7 +84,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r_merida_estimados}
+```{r merida_estimados}
 # Step 1. load the dengue cases data ######
 x <- denhotspots::read_dengue_dataset(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
                                       spatial_resolution = "country",
@@ -519,12 +519,10 @@ kernel_density_map(locality = "Oxkutzcab",
 
 
 
-
-
 ## [Peto]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r peto}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/cases_week.R")
 
@@ -539,7 +537,7 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 ## [Mapa de Calor de Peto]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
-```{r}
+```{r heatmap_peto}
 # Step 1. load the function ####
 source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/kerne_density_map.R")
 
@@ -555,6 +553,7 @@ kernel_density_map(locality = "Peto",
                    map_type = "hybrid")
 
 ```
+
 
 
 
