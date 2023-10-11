@@ -222,6 +222,8 @@ kernel_density_map(locality = "Mérida",
                    geocoded_datasets = z,
                    zoom = 12,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.2,
                    map_type = "hybrid")
 
 ```
@@ -258,6 +260,8 @@ kernel_density_map(locality = "Motul de Carrillo Puerto",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -294,6 +298,8 @@ kernel_density_map(locality = "Progreso",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -330,6 +336,8 @@ kernel_density_map(locality = "Hunucma",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -367,6 +375,8 @@ kernel_density_map(locality = "Valladolid",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -402,6 +412,8 @@ kernel_density_map(locality = "Tizimin",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -440,6 +452,8 @@ kernel_density_map(locality = "Ticul",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -477,6 +491,8 @@ kernel_density_map(locality = "Tekax de Alvaro Obregon",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -513,6 +529,8 @@ kernel_density_map(locality = "Oxkutzcab",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
@@ -550,6 +568,8 @@ kernel_density_map(locality = "Peto",
                    geocoded_datasets = z,
                    zoom = 14,
                    status_caso = c(1, 2),
+                   week = c(38:41),
+                   alpha = 0.5,
                    map_type = "hybrid")
 
 ```
