@@ -343,7 +343,6 @@ kernel_density_map(locality = "Hunucma",
 ```
 
 
-
 ## [Valladolid]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -358,6 +357,23 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
            year = 2023) 
 
 ```
+
+## [Valladolid]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r valladolid_estimados}
+# step 1. load the dataset ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/estimados_eggs.R")
+
+# Step 2. apply the function ####
+estimados_eggs(path_dengue = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+               path_ovitraps = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan",
+               localidad = "Valladolid",
+               year = 2023,
+               fac_axes = 1.5,
+               municipio = "VALLADOLID")
+```
+
 
 ## [Mapa de Calor de Valladolid]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -395,6 +411,25 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
            year = 2023) 
 
 ```
+
+
+## [Tizimín]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r tizimin_estimados}
+# step 1. load the dataset ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/estimados_eggs.R")
+
+# Step 2. apply the function ####
+estimados_eggs(path_dengue = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+               path_ovitraps = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan",
+               localidad = "Tizimín",
+               year = 2023,
+               fac_axes = 1.5,
+               municipio = "TIZIMIN")
+```
+
+
 
 ## [Mapa de Calor de Tizimin]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
@@ -436,6 +471,21 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 
 ```
 
+## [Ticul]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+`
+```{r ticul_estimados}
+# step 1. load the dataset ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/estimados_eggs.R")
+estimados_eggs(path_dengue = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+               path_ovitraps = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan",
+               localidad = "Ticul",
+               year = 2023,
+               fac_axes = 10,
+               municipio = "TICUL")
+```
+
 ## [Mapa de Calor de Ticul]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -475,6 +525,24 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
 
 ```
 
+## [Tekax]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r tekax_estimados}
+# step 1. load the dataset ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/estimados_eggs.R")
+
+# Step 2. test the funciton ####
+estimados_eggs(path_dengue = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+               path_ovitraps = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan",
+               localidad = "Tekax De Álvaro Obregón",
+               year = 2023,
+               fac_axes = 2.5,
+               municipio = "TEKAX")
+```
+
+
+
 ## [Mapa de Calor de Tekax]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
 
@@ -512,6 +580,22 @@ cases_week(path = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/
            year = 2023) 
 
 ```
+
+## [Oxkutzcab]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r oxkutzcab_estimados}
+# step 1. load the dataset ####
+source("~/Library/CloudStorage/OneDrive-Personal/proyects/colaboraciones/nacionales/ssa_yucatan/operativos_dengue/3.Functions/estimados_eggs.R")
+
+estimados_eggs(path_dengue = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/DGE/arbo/DENGUE2_.txt",
+               path_ovitraps = "/Users/fdzul/Library/CloudStorage/OneDrive-Personal/datasets/CENAPRECE/2023/31_yucatan",
+               localidad = "Oxkutzcab",
+               year = 2023,
+               fac_axes = 5,
+               municipio = "OXKUTZCAB")
+```
+
 
 ## [Mapa de Calor de Oxkutzcab]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
