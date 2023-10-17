@@ -28,7 +28,7 @@ highlight-style: a11y
 </h3>
 
 <h4>Date: 2023-10-02 </h4>
-<h4>Update: 2023-10-02 </h4>
+<h4>Update: 2023-10-16 </h4>
 
 <br>
 
@@ -205,6 +205,171 @@ ggplot2::ggplot(data = x) +
                axis.text.y = ggplot2::element_text(color = "#E01A59", 
                                                    size=10))
 ```
+
+
+## [Mérida RO]{style="color:#003300"}
+<hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
+
+```{r merida_RO}
+source("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/Books&Papers/Epidemiology/RO/interval_serial/publication-data-master/Codeco-et-al-2017/EstRtGT_v4.R")
+require(R0)
+require(parallel)
+require(grid)
+require(ggplot2)
+source("/Users/fdzul/Library/CloudStorage/OneDrive-Personal/Books&Papers/Epidemiology/RO/interval_serial/publication-data-master/Codeco-et-al-2017/sumgamma_v2.R")
+maxcores <- detectCores() 
+library(AlertTools)
+
+
+# Step 1. load the dataset #####
+load("~/Library/CloudStorage/Dropbox/projects/ETV/dengue/climatic_data_cases/8.RData/clim_cases.RData")
+
+#
+d <- clim_cases_23 |>
+    dplyr::filter(week <= 40)
+
+
+# Step 2. plot the cases ####
+d$t <- 1:nrow(d)
+
+#####
+temp.lo = predict(loess(d$temperature~d$t, 
+                        span=0.05)) # we smooth the temperature (optional)
+
+
+
+##
+# this can take a while...1148
+Tmax <- length(d$n)
+GTmax = 5 # maximum generation time (weeks)
+
+gt <- mcmapply(evalGenTimeDist, 
+               1:Tmax,
+               MoreArgs= list(a = c(16, 4.3, 1, 1),
+                              b = c(1/2.69821, 1/0.4623722, 1, 1),
+                              serT = temp.lo, 
+                              tt = d$t, 
+                              GT.max = GTmax), 
+               mc.cores = min(maxcores, 10))
+
+n = GTmax + 1
+contour(gt[1:n,1:Tmax], 
+        x = 1:n,
+        y = 1:Tmax,
+        ylab="time", 
+        xlab="generation time (week)",
+        main="")
+
+# Step 3. estimate Rt ####
+
+### Rt estimation 
+
+
+# with constant generation time (standard function from library R0)
+mGT <- R0::generation.time(type = "gamma", 
+                          val = c(3, 1))
+TD <- R0::est.R0.TD(epid = d$n, 
+                    GT = mGT, 
+                    begin = 1, 
+                    end = 40, 
+                    nsim = 1000, 
+                    correct=FALSE)
+
+
+
+
+#  with temperature-dependent estimator (this study)
+nsim = 1000 
+
+# GT 
+gt.lo <- matrix(data = 0, 
+                ncol = Tmax, 
+                nrow=Tmax)
+gt.lo[1:n, ] <- gt
+gt.lo <- t(gt.lo)
+
+Rt.lo <- est.R.Temp(Cdate = d$n[1:Tmax],
+                    mGT, 
+                    GTTemp = gt.lo, 
+                    date = d$t[1:Tmax], 
+                    begin = 1, 
+                    end = Tmax, 
+                    correct = FALSE, 
+                    nsim = nsim)
+
+######
+#  ggplot
+
+lT <- length(Rt.lo$R)
+df.result.lo <- data.frame(R = Rt.lo$R, 
+                           ymin = Rt.lo$conf.int[1], 
+                           ymax = Rt.lo$conf.int[2], 
+                           date= Rt.lo$date[1:lT], 
+                           incid = Rt.lo$epid$incid,
+                           dt.inicio = 1:lT,                        
+                           type="Temperature-Dependent")
+
+#rangeTD <- c(1, Tmax)
+
+df.static <- data.frame(R = TD$R, 
+                        ymin =TD$conf.int[1],
+                        ymax =TD$conf.int[2],
+                        date =Rt.lo$date[1:lT],
+                        incid = Rt.lo$epid$incid, 
+                        dt.inicio = 1:lT, 
+                        type = "Temperature-Independent")
+
+df.result.lo <- rbind(df.result.lo, 
+                      df.static)
+
+a <- ggplot2::ggplot(data=df.result.lo, 
+                ggplot2::aes(x= dt.inicio, 
+                             y= R, 
+                             ymin= lower,
+                             ymax=upper)) +
+    ggplot2::ylim(0,5.0) + 
+    ggplot2::geom_ribbon(fill = "#E01A59",
+                         alpha = 1) + 
+    ggplot2::geom_line(col = "#63C1A0",
+                       linewidth = 1) + 
+    ggplot2::geom_line(aes(y=1), 
+                       linetype=2)  +
+    ggplot2::facet_grid("type")  +
+    ggplot2::ylab("Número de Reproducción Efectivo (RO)") +
+    ggplot2::xlab("Semana Epidemiológica") +
+    ggplot2::scale_x_continuous(breaks = seq(from = min(df.result.lo$date),
+                                             to = max(df.result.lo$date)+1, 
+                                             by  = 2)) 
+    
+b <- ggplot2::ggplot(data = d) +
+    ggplot2::geom_line(ggplot2::aes(x = t,
+                                    y = n),
+                       col = "#E01E5A",
+                       linewidth = 2) +
+    ggplot2::geom_point(ggplot2::aes(x = t,
+                                     y = n),
+                        col = "#E01E5A",
+                        size = 5) +
+    #ggplot2::facet_wrap("DES_MPO_RES",scales = "free_y") +
+    ggplot2::theme(legend.position = c(.1, .85),
+                   legend.background = ggplot2::element_blank()) +
+    ggplot2::scale_x_continuous(breaks = seq(from = 0, 
+                                             to = lubridate::epiweek(Sys.Date())+1, 
+                                             by = 2)) +
+    #ggplot2::scale_y_continuous(breaks = seq(from = 0, 
+    #                                        to = max(), 
+    #                                        by = 50)) +
+    ggplot2::ylab("Número de Casos Confirmados") +
+    ggplot2::xlab("Semanas Epidemiológicas") +
+    ggplot2::coord_cartesian(xlim = c(1, 40)) 
+
+library(patchwork)
+
+a/b
+
+```
+
+
 
 ## [Mapa de Calor de Mérida]{style="color:#003300"}
 <hr style="height:2px;border-width:0;color:#330019;background-color:#330019">
