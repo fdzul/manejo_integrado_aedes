@@ -253,12 +253,7 @@ gt <- mcmapply(evalGenTimeDist,
                mc.cores = min(maxcores, 10))
 
 n = GTmax + 1
-contour(gt[1:n,1:Tmax], 
-        x = 1:n,
-        y = 1:Tmax,
-        ylab="time", 
-        xlab="generation time (week)",
-        main="")
+
 
 # Step 3. estimate Rt ####
 
@@ -335,7 +330,7 @@ a <- ggplot2::ggplot(data=df.result.lo,
     ggplot2::geom_line(aes(y=1), 
                        linetype=2)  +
     ggplot2::facet_grid("type")  +
-    ggplot2::ylab("Número de Reproducción Efectivo (RO)") +
+    ggplot2::ylab("RO") +
     ggplot2::xlab("Semana Epidemiológica") +
     ggplot2::scale_x_continuous(breaks = seq(from = min(df.result.lo$date),
                                              to = max(df.result.lo$date)+1, 
@@ -359,7 +354,7 @@ b <- ggplot2::ggplot(data = d) +
     #ggplot2::scale_y_continuous(breaks = seq(from = 0, 
     #                                        to = max(), 
     #                                        by = 50)) +
-    ggplot2::ylab("Número de Casos Confirmados") +
+    ggplot2::ylab("Casos Confirmados") +
     ggplot2::xlab("Semanas Epidemiológicas") +
     ggplot2::coord_cartesian(xlim = c(1, 40)) 
 
